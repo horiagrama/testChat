@@ -13,5 +13,9 @@
   },
   "engines": {
     "node": "0.10.x"
+  },
+  "scripts": {
+    "postinstall": "./scripts/postinstall.sh",
+    "start": "./scripts/start.sh"
   }
 }
