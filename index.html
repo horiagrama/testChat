@@ -28,10 +28,9 @@
   // Add a connect listener
 //    socket.connect(appSettings.get('ip')+appSettings.get('port'));
   
-    socket.on('connect',function() {
-//       $('#messages').append($('<li>').text('user connected'));
-      socket.emit('chat message','You connected');
-    });
+//     socket.on('connect',function() {
+//       socket.emit('chat message','You connected');
+//     });
   
   $('form').submit(function(){
     socket.emit('chat message', $('#m').val());
