@@ -28,9 +28,7 @@
         return false;
       });
       socket.on('/msg', function(msg){
-      	var key = Object.keys(msg[0][0]);
-      	var value = Object.keys[msg[0][key]];
-        $('#messages').append($('<li>').text(key+':'+value));
+        $('#messages').append($('<li>').text(msg));
       });
     </script>
   </body>
