@@ -23,8 +23,10 @@
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
   var socket = io();
+  var appSettings = app();
+  
   // Add a connect listener
-//   socket.connect('http://127.0.0.1:3000'); 
+   socket.connect('http://127.0.0.1:'+appSettings.get('port'));
   
     socket.on('connect',function() {
 //       $('#messages').append($('<li>').text('user connected'));
