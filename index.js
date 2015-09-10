@@ -46,11 +46,19 @@ var io = require('socket.io')(http);
 
 app.set('port', process.env.PORT || 3000);
 
+var port = app.get('port');
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
 io.on('connection', function(socket){
+
+	console.log('Connection to client established');
+	socket.on('disconnect', function(){
+    	console.log('user disconnected');
+	});
+	
 	io.emit('/conn', 'User connected');
 	
   socket.on('/msg', function(msg){
@@ -59,5 +67,5 @@ io.on('connection', function(socket){
 });
 
 http.listen(app.get('port'), function(){
-  console.log('listening on *:'+app.get('port'));
+  console.log('listening on *:' + port);
 });
