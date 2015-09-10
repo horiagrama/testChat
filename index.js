@@ -3,11 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 app.set('port', process.env.PORT ||process.env.OPENSHIFT_NODEJS_PORT || 3000);
-app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0"); 
-
-http.listen(app.get('port'), function(){
-  console.log('listening at %s:%d:', app.get('ip'),app.get('port'));
-});
+// app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0"); 
 
 app.get('/', function(req, res){
   res.sendfile(__dirname + '/index.html');
@@ -37,6 +33,10 @@ io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
+});
+
+http.listen(app.get('port'), function(){
+  console.log('listening at %s:%d:', app.get('ip'),app.get('port'));
 });
 
 
