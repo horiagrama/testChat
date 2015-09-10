@@ -51,6 +51,7 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
+	io.emit('/msg', 'User connected');
   socket.on('/msg', function(msg){
     io.emit('/msg', msg);
   });
