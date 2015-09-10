@@ -11,9 +11,6 @@
     "type": "git",
     "url": "git://github.com/horiagrama/testchat.git"
   },
-  "engines": {
-    "node": "0.10.x"
-  },
   "scripts": {
     "start": "node index.js"
   }
