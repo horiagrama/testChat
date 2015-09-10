@@ -23,10 +23,10 @@
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
   var socket = io();
-  var appSettings = app();
+//   var appSettings = app();
   
   // Add a connect listener
-   socket.connect(appSettings.get('ip')+appSettings.get('port'));
+//    socket.connect(appSettings.get('ip')+appSettings.get('port'));
   
     socket.on('connect',function() {
 //       $('#messages').append($('<li>').text('user connected'));

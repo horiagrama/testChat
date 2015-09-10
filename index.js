@@ -5,6 +5,10 @@ var io = require('socket.io')(http);
 app.set('port', process.env.PORT ||process.env.OPENSHIFT_NODEJS_PORT || 3000);
 app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1"); 
 
+http.listen(app.get('port'), function(){
+  console.log('listening at %s:%d:', app.get('ip'),app.get('port'));
+});
+
 app.get('/', function(req, res){
   res.sendfile(__dirname + '/index.html');
 });
@@ -25,6 +29,7 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
 	console.log('Connection to client established');
+	
 	socket.on('disconnect', function(){
     	console.log('user disconnected');
 	});
@@ -34,6 +39,4 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(app.get('port'), function(){
-  console.log('listening at %s:%d:', app.get('ip'),app.get('port'));
-});
+
