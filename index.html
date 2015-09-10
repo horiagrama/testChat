@@ -28,7 +28,7 @@
   
     socket.on('connect',function() {
 //       $('#messages').append($('<li>').text('user connected'));
-      socket.emit('chat message','user connected');
+      socket.emit('chat message','You connected');
     });
   
   $('form').submit(function(){
