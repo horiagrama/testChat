@@ -59,10 +59,10 @@ io.on('connection', function(socket){
     	console.log('user disconnected');
 	});
 	
-	io.emit('/conn', 'User connected');
+	io.emit('#conn', 'User connected');
 	
-  socket.on('/msg', function(msg){
-    io.emit('/msg', msg);
+  socket.on('#msg', function(msg){
+    io.emit('#msg', msg);
   });
 });
 

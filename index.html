@@ -27,15 +27,15 @@
       });
       
       $('form').submit(function(){
-        socket.emit('/msg', $('#m').val());
+        socket.emit('#msg', $('#m').val());
         $('#m').val('');
         return false;
       });
-      socket.on('/msg', function(msg){
+      socket.on('#msg', function(msg){
         $('#messages').append($('<li>').text(msg));
       });
       
-      socket.on('/conn'), function(msg){
+      socket.on('#conn'), function(msg){
       	$('#messages').append($('<li>').text(msg));
       }
     </script>
