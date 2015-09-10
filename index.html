@@ -31,8 +31,11 @@
 });
 
     socket.on('connect',function() {
-//       $('#messages').append($('<li>').text('user connected'));
       socket.emit('chat message','user connected');
+    });
+    
+    socket.on('disconnect',function() {
+      socket.emit('chat message','user disconnected');
     });
   
   $('form').submit(function(){
