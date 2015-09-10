@@ -51,7 +51,7 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-	io.emit('/connected', 'User connected');
+	io.emit('/conn', 'User connected');
 	
   socket.on('/msg', function(msg){
     io.emit('/msg', msg);
