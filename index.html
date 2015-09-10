@@ -26,6 +26,10 @@
   // Add a connect listener
 //   socket.connect('http://127.0.0.1:3000'); 
   
+  $(window).on('beforeunload', function(){
+    socket.close();
+});
+
     socket.on('connect',function() {
 //       $('#messages').append($('<li>').text('user connected'));
       socket.emit('chat message','user connected');
