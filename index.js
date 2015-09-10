@@ -2,6 +2,9 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+//retain all clients sockets to broadcast to every one
+var allClients = [];
+
 app.set('port', process.env.PORT ||process.env.OPENSHIFT_NODEJS_PORT || 3000);
 app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1"); 
 
@@ -25,8 +28,14 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
 	console.log('Connection to client established');
+	allClients.push(socket);
+	
+	
 	socket.on('disconnect', function(){
     	console.log('user disconnected');
+    	
+    	var i = allClients.indexOf(socket);
+		delete allClients[i];
 	});
 
   socket.on('chat message', function(msg){

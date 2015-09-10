@@ -27,15 +27,12 @@
 //   socket.connect('http://127.0.0.1:3000'); 
   
   $(window).on('beforeunload', function(){
-    socket.close();
+	  socket.emit('chat message','user disconnected');
+	  socket.close();
 });
 
     socket.on('connect',function() {
       socket.emit('chat message','user connected');
-    });
-    
-    socket.on('disconnect',function() {
-      socket.emit('chat message','user disconnected');
     });
   
   $('form').submit(function(){
