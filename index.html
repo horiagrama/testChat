@@ -22,11 +22,11 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
-	if(!String.prototype.startsWith){
-		String.prototype.startsWith = function (str) {
-			return !this.indexOf(str);
-		}
-	}
+// 	if(!String.prototype.startsWith){
+// 		String.prototype.startsWith = function (str) {
+// 			return !this.indexOf(str);
+// 		}
+// 	}
 
   var socket = io();
   // Add a connect listener
@@ -57,8 +57,7 @@
 //   		socket.emit('/join2', msg1);
 //   	}else
 //   	{
-    	socket.emit('chat message', txt);
-//     }
+	socket.emit('chat message', txt);
     $('#m').val('');
     return false;
   });
