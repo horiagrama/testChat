@@ -27,7 +27,7 @@ app.get('/', function(req, res){
 // });
 
 io.on('connection', function(socket){
-	console.log('Connection to client established...sockets %d',allClients.length());
+	console.log('Connection to client established...sockets %d',allClients.length);
 	allClients.push(socket);
 	
 	
