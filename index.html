@@ -47,8 +47,12 @@
   	if(txt.substring(0,"/join1".length) === "/join1")
   	{
   		var msg1 = txt.substring(7,txt.length);
-  		socket.emit('chat message', '/join1 --> '+msg1);
-  		socket.emit('/join1', msg1);
+  		//test
+  		socket.join(msg1);
+  		socket.to(msg).emit('chat message','ma conectai, frate si eu in ' + msg1);
+  		
+//   		socket.emit('chat message', '/join1 --> '+msg1);
+//   		socket.emit('/join1', msg1);
   		
   	}else if(txt.substring(0,"/join2".length) === "/join2")
   	{
