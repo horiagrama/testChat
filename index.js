@@ -42,6 +42,11 @@ io.on('connection', function(socket){
     io.emit('chat message', msg);
   });
   
+  socket.on('/join1'),function(msg){
+  	socket.join(msg);
+  	io.emit('chat message', msg);
+  }
+  
 });
 
 http.listen(app.get('port'), function(){

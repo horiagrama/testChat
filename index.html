@@ -44,19 +44,19 @@
   $('form').submit(function(){
   
   	var txt = $('#m').val();
-  	// if(txt.startsWith("/join1"))
-//   	{
-//   		var msg1 = txt.substring(7,txt.length);
-//   		socket.emit('chat message', '/join1 --> '+msg1);
-//   		socket.emit('/join1', msg1);
-//   		
-//   	}else if(txt.startsWith("/join2"))
-//   	{
-//   		var msg1 = txt.substring(7,txt.length);
-//   		socket.emit('chat message', '/join2 --> '+msg1);
-//   		socket.emit('/join2', msg1);
-//   	}else
-//   	{
+  	if(txt.substring(0,"/join1".length) === "/join1")
+  	{
+  		var msg1 = txt.substring(7,txt.length);
+  		socket.emit('chat message', '/join1 --> '+msg1);
+  		socket.emit('/join1', msg1);
+  		
+  	}else if(txt.substring(0,"/join2".length) === "/join2")
+  	{
+  		var msg1 = txt.substring(7,txt.length);
+  		socket.emit('chat message', '/join2 --> '+msg1);
+  		socket.emit('/join2', msg1);
+  	}else
+  	{
 	socket.emit('chat message', txt);
     $('#m').val('');
     return false;
