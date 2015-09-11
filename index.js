@@ -29,11 +29,11 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
 	console.log('Connection to client established...sockets %d',allClients.length);
 	allClients.push(socket);
-	
-	
+
 	socket.on('disconnect', function(){
     	var i = allClients.indexOf(socket);
-		delete allClients[i];
+    	if(index > -1)
+			allClients.splice(i,1);
 		
 		console.log('user disconnected ...%d -> %d',i,allClients.length);
 	});

@@ -46,13 +46,10 @@
   	var txt = $('#m').val();
   	if(txt.substring(0,"/join1".length) === "/join1")
   	{
+  		//JON, LEAVE is a SERVERSIDE job
   		var msg1 = txt.substring(7,txt.length);
-  		//test
-  		socket.join(msg1);
-  		socket.to(msg).emit('chat message','ma conectai, frate si eu in ' + msg1);	
-  		
-//   		socket.emit('chat message', '/join1 --> '+msg1);
-//   		socket.emit('/join1', msg1);
+  		socket.emit('chat message', '/join1 --> '+msg1);
+  		socket.emit('/join1', msg1);
   		
   	}else if(txt.substring(0,"/join2".length) === "/join2")
   	{
