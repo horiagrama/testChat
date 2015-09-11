@@ -52,13 +52,14 @@
   		
   	}else if(txt.substring(0,"/join2".length) === "/join2")
   	{
-  		var msg1 = txt.substring(7,txt.length);
-  		socket.emit('chat message', '/join2 --> '+msg1);
-  		socket.emit('/join2', msg1);
+  		var msg2 = txt.substring(7,txt.length);
+  		socket.emit('chat message', '/join2 --> '+msg2);
+  		socket.emit('/join2', msg2);
   	}else
   	{
 	socket.emit('chat message', txt);
     $('#m').val('');
+    }
     return false;
   });
   socket.on('chat message', function(msg){
