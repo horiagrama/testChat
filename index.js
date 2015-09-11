@@ -32,10 +32,10 @@ io.on('connection', function(socket){
 	
 	
 	socket.on('disconnect', function(){
-    	console.log('user disconnected');
-    	
     	var i = allClients.indexOf(socket);
 		delete allClients[i];
+		
+		console.log('user disconnected ...%d -> %d',i,allClients.length);
 	});
 
   socket.on('chat message', function(msg){
