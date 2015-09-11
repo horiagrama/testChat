@@ -44,7 +44,7 @@ io.on('connection', function(socket){
   
   socket.on('/join1',function(msg){
   	socket.join(msg);
-  	io.to(msg).emit('ma conectai, frate!'):
+  	io.to(msg).emit('chat message','ma conectai, frate!');
   });
   
 });
